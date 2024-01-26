@@ -1,4 +1,3 @@
-//alert('Привет');
 const image = document.getElementById("cookie");
 const clickerCounter = document.getElementById("clicker__counter");
 const clickerCounterDate = document.getElementById("clicker__counter_date");
