@@ -20,3 +20,10 @@
 
   next();
 })();
+
+
+const star = document.getElementsByClassName('hole');
+
+for (i=0; i<star.length; i++) {
+  if (star.className)
+}

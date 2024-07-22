@@ -17,7 +17,7 @@ function timer_alert() {
         click_file.click();
     }
     else {
-        timer = setTimeout(timer_alert, 20);
+        timer = setTimeout(timer_alert, 1000);
         if (x < 10) {
             timer1.textContent = hours + ":" + minutes + ":0" + x;
         }

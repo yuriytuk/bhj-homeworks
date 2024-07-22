@@ -1,21 +1,21 @@
-const tabs = document.getElementsByClassName('tab'),
-    tabsContent = document.getElementsByClassName('tab__content');
+const tabs = document.getElementsByClassName('tab');
+const tabsContent = document.getElementsByClassName('tab__content');
+let tabIndex = 0;
 
-handler();
-function handler() {
-    for (let i=0; i<tabs.length; i++) {
-        tabs[i].addEventListener('click', handler1);
-    }
+for (let i = 0; i < tabs.length; i++) {
+    tabs[i].index = i;
+    tabsContent[i].index = i;
+    tabs[i].addEventListener('click', function() {
+      selectTab(this.index);
+    })
 }
 
-function handler1() {
-    for (let i=0; i<tabs.length; i++) {
-        if (event.target == tabs[i]) {
-            tabs[i].classList.add('tab_active');
-            tabsContent[i].classList.add('tab__content_active'); 
-        } else {
-            tabs[i].classList.remove('tab_active');
-            tabsContent[i].classList.remove('tab__content_active');
-        }
-    }
+const selectTab = (newIndex) => {
+  if(tabIndex === newIndex)
+    return;
+  tabs[tabIndex].classList.remove('tab_active');
+  tabsContent[tabIndex].classList.remove('tab__content_active');
+  tabs[newIndex].classList.add('tab_active');
+  tabsContent[newIndex].classList.add('tab__content_active');
+  tabIndex = newIndex;
 }
