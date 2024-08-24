@@ -1,11 +1,9 @@
 const textWindow = document.getElementById('editor');
-const deleteText = document.getElementById('clean');
-const key = 'text';
+const deleteText = document.getElementById("clean");
 
-if (localStorage[key] === undefined) {
-    textWindow.value = "";
-    } else {
-        textWindow.value = localStorage[key];
+if (localStorage.getItem('key')) {
+    textWindow.value = localStorage.getItem('key');
 }
+
 deleteText.addEventListener('click', () => textWindow.value = '');
-window.addEventListener('unload', () => localStorage[key] = textWindow.value);
+window.addEventListener('unload', () => localStorage.setItem('key', textWindow.value));
