@@ -1,11 +1,18 @@
-const modalWindow = document.getElementById('subscribe-modal');
-const modalClose = document.querySelector('.modal__close');
+const subscribeModal = document.getElementById('subscribe-modal');
+const modalClose = subscribeModal.querySelector('.modal__close');
 
-modalClose.addEventListener('click', () => {
-  modalWindow.classList.remove('modal_active');
-  localStorage.setItem('modalClose', 'close');
-});
+modalClose.addEventListener('click', handler);
 
-if (localStorage.getItem('modalClose') !== 'close') {
-    modalWindow.classList.add('modal_active');
+function handler() {
+  modalClose.classList.remove('modal_active');
+  document.cookie = "modalActive=close; max-age=2629743"; //2629743
+}
+
+let results = document.cookie.match(/modalActive=(.+?)(;|$)/);
+try {
+  if (results[1] !== 'close') {
+    subscribeModal.classList.add('modal_active');
+  };
+} catch (error) {
+  
 }
